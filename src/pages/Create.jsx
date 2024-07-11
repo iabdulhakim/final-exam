@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 function Create() {
   const [value, setValue] = useState({
     title: "",
-    category: "Grilled Chicken with Vegetables",
+    category: "",
     cookingTime: "",
     ingredeints: "",
     imgsUrl: "",
@@ -24,7 +24,7 @@ function Create() {
       toast.success(value.title + " " + "recipe added");
       setValue({
         title: "",
-        category: "Grilled Chicken with Vegetables",
+        category: "",
         cookingTime: "",
         ingredeints: "",
         imgsUrl: "",
@@ -42,8 +42,8 @@ function Create() {
   };
 
   return (
-    <div className="container">
-      <div className=" flex justify-start mb-2 ml-2">
+    <div className="container dark:bg-[#000814]">
+      <div className=" flex justify-start mb-2 ml-2 ">
         <Link to={"/"}>
           <button className="btn btn-primary  text-white flex gap-2 ">
             <svg
@@ -61,7 +61,7 @@ function Create() {
       </div>
 
       <div className=" max-w-[375px] w-full mx-auto flex flex-col pb-6   justify-center ">
-        <h1 className="font-bold mb-4 text-xl mx-auto">Add New Recipe</h1>
+        <h1 className="font-bold mb-4 text-xl mx-auto ">Add New Recipe</h1>
 
         <form
           onSubmit={handleSubmit}
@@ -71,11 +71,12 @@ function Create() {
             type={"text"}
             label={"Title"}
             value={value.title}
-            className=""
+            className="title-input"
             name={"title"}
             handleChange={handleChange}
             required
           />
+
 
           <label className="form-control w-full max-w-xs ">
             <div className="label">
@@ -85,7 +86,7 @@ function Create() {
               value={value.category}
               name="category"
               onChange={handleChange}
-              className="select select-bordered w-full max-w-xs text-black"
+              className="select select-bordered w-full dark:bg-[#000814] dark:border-gray-500 dark:text-white max-w-xs text-black"
               required
             >
               <option>National Food</option>
@@ -112,6 +113,7 @@ function Create() {
             name={"ingredeints"}
             handleChange={handleChange}
             required
+
           />
 
           <FormInput
@@ -128,7 +130,7 @@ function Create() {
               <span className="label-text capitalize">Method</span>
             </div>
             <textarea
-              className="textarea w-full"
+              className="textarea dark:bg-[#000814] dark:border-gray-500 dark:text-white border-gray-300 w-full title-input"
               value={value.method}
               name="method"
               onChange={handleChange}
